@@ -1,0 +1,18 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.dankook.hub.dao.StoreFileDAO">
+    <select id="selectFile" resultType="com.dankook.hub.vo.StoreFileVO">
+        SELECT * 
+        FROM STORE_FILEDETAIL
+        WHERE ATCH_FILE_ID=#{atch_file_id} 
+            AND FILE_INDEX=0
+    </select>
+    
+    <select id="listFiles" resultType="com.dankook.hub.vo.StoreFileVO">
+        SELECT *
+        FROM STORE_FILEDETAIL
+        WHERE ATCH_FILE_ID=#{atch_file_id}
+    </select>
+</mapper>

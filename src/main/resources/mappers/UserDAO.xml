@@ -1,0 +1,28 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.dankook.hub.dao.UserDAO">
+    
+    <!-- 회원가입 -->
+    <insert id="insertUser" parameterType="com.dankook.hub.vo.UserVO">
+        INSERT INTO USER(USR_ID, USR_PASSWORD, USR_NAME, USR_PHONE)
+        VALUES(#{usr_id}, #{usr_password}, #{usr_name}, #{usr_phone})
+    </insert>
+    
+    <!-- 로그인  -->
+    <select id="selectUser" resultType="com.dankook.hub.vo.UserVO">
+        SELECT * FROM USER WHERE USR_ID=#{usr_id}
+    </select>
+    
+    <update id="updateUser">
+        UPDATE USER 
+        SET USR_ID=#{usr_id}, USR_PASSWORD=#{usr_password} 
+            USR_NAME=#{usr_name}, USR_PHONE=#{usr_phone}
+    </update>
+    
+    <delete id="deleteUser">
+        DELETE FROM USER WHERE USR_KEY=#{usr_key};
+    </delete>
+    
+</mapper>
