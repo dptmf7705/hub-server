@@ -7,4 +7,5 @@ public interface UserDAO {
     public UserVO selectUser(String usr_id);
     public void updateUser(UserVO uvo);
     public void deleteUser(int usr_key);
+    public int overlap(String usr_id);
 }

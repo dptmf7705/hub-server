@@ -32,5 +32,13 @@ public class UserController {
         
         userService.insertUser(uvo);
     }
+    
+    @RequestMapping("/overlap")
+    @ResponseBody
+    public HashMap<String, Object> overlap(String usr_id) {
+    	System.out.println("UserController.overlap() called... with "+usr_id);
+    	
+    	return userService.overlap(usr_id);
+    }
 
 }
