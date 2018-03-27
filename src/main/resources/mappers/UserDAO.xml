@@ -6,8 +6,8 @@
     
     <!-- 회원가입 -->
     <insert id="insertUser" parameterType="com.dankook.hub.vo.UserVO">
-        INSERT INTO USER(USR_ID, USR_PASSWORD, USR_NAME, USR_PHONE)
-        VALUES(#{usr_id}, #{usr_password}, #{usr_name}, #{usr_phone})
+        INSERT INTO USER(USR_ID, USR_PASSWORD, USR_SALT, USR_NAME, USR_PHONE)
+        VALUES(#{usr_id}, #{usr_password},#{usr_salt}, #{usr_name}, #{usr_phone})
     </insert>
     
     <!-- 로그인  -->
