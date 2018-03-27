@@ -15,6 +15,11 @@
         SELECT * FROM USER WHERE USR_ID=#{usr_id}
     </select>
     
+    <!-- 중복체크 -->
+    <select id="overlap" resultType="int">
+    	SELECT count(usr_id) FROM USER WHERE USR_ID=#{usr_id}
+    </select>
+    
     <update id="updateUser">
         UPDATE USER 
         SET USR_ID=#{usr_id}, USR_PASSWORD=#{usr_password} 

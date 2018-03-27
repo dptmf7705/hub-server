@@ -72,5 +72,19 @@ public class UserServiceImpl implements UserService {
         return dao.selectUser(usr_id);
     }
 
+    @Override
+    public HashMap<String, Object> overlap(String usr_id) {
+    	System.out.println("UserService.overlap() called...");
+    	HashMap<String, Object> map = new HashMap<>();
+    	
+    	if(dao.overlap(usr_id)==0) {
+    		map.put("result", true);
+    		return map;
+    	}
+    	else {
+    		map.put("result", false);
+    		return map;
+    	}
+    }
 
 }
