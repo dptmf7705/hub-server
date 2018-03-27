@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class HomeController {
-	int k = 10;
+	int k = 7;
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	/**
