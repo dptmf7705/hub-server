@@ -3,16 +3,23 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
 <mapper namespace="com.dankook.hub.dao.StoreFileDAO">
-    <select id="selectFile" resultType="com.dankook.hub.vo.StoreFileVO">
-        SELECT * 
-        FROM STORE_FILEDETAIL
-        WHERE ATCH_FILE_ID=#{atch_file_id} 
-            AND FILE_INDEX=0
-    </select>
-    
+
     <select id="listFiles" resultType="com.dankook.hub.vo.StoreFileVO">
         SELECT *
-        FROM STORE_FILEDETAIL
+        FROM STORE_FILE
         WHERE ATCH_FILE_ID=#{atch_file_id}
     </select>
+    
+    <insert id="insertFiles" parameterType="java.util.List">
+   		INSERT INTO STORE_FILE(`atch_file_id`, `file_index`, `file_stre_url`, `stre_file_name`, `orign_file_name`, `file_extn`)
+    	VALUES
+    	<foreach collection="list" item="element" index="index" open="(" separator="),("  close=")">
+     		#{element.atch_file_id},
+     		#{element.file_index},
+     		#{element.file_stre_url},
+     		#{element.stre_file_name},
+     		#{element.orign_file_name},
+     		#{element.file_extn}
+    	</foreach>
+	</insert>
 </mapper>

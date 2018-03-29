@@ -1,17 +1,18 @@
 package com.dankook.hub.vo;
 
 public class StoreFileVO {
-    private int atch_file_key;
+    private int atch_file_id;
     private int file_index;
     private String file_stre_url;
     private String stre_file_name;
     private String orign_file_name;
-    private String file_ext;
-	public int getAtch_file_key() {
-		return atch_file_key;
+    private String file_extn;
+    
+	public int getAtch_file_id() {
+		return atch_file_id;
 	}
-	public void setAtch_file_key(int atch_file_key) {
-		this.atch_file_key = atch_file_key;
+	public void setAtch_file_id(int atch_file_id) {
+		this.atch_file_id = atch_file_id;
 	}
 	public int getFile_index() {
 		return file_index;
@@ -37,11 +38,11 @@ public class StoreFileVO {
 	public void setOrign_file_name(String orign_file_name) {
 		this.orign_file_name = orign_file_name;
 	}
-	public String getFile_ext() {
-		return file_ext;
+	public String getFile_extn() {
+		return file_extn;
 	}
-	public void setFile_ext(String file_ext) {
-		this.file_ext = file_ext;
+	public void setFile_extn(String file_extn) {
+		this.file_extn = file_extn;
 	}
     
     

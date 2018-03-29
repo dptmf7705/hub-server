@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public HashMap<String, Object> login(LoginVO lvo) {
-        HashMap<String, Object> map = new HashMap<>();
+        HashMap<String, Object> map = new HashMap<String, Object>();
         
         UserVO uvo = dao.selectUser(lvo.getUsr_id());
         if(uvo != null) { // id 존재

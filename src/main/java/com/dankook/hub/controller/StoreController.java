@@ -18,6 +18,7 @@ import com.dankook.hub.vo.StoreFileVO;
 import com.dankook.hub.vo.StoreVO;
 
 @Controller
+@RequestMapping("/android/store")
 public class StoreController {
 
     @Autowired
@@ -39,30 +40,15 @@ public class StoreController {
     public StoreDetailVO detail(@RequestParam("st_key") int st_key) {
         System.out.println("StoreController.detail() called...");
 
-        return storeService.selectStoreDetail(st_key);
+        return storeService.selectStore(st_key);
     }
     
-    @RequestMapping("/file/selectFile")
+    @RequestMapping("/file/selectFiles")
     @ResponseBody
-    public StoreFileVO selectFile(@RequestParam("atch_file_id") int atch_file_id){
-        System.out.println("StoreController.selectFile() called...");
-        
-        return StoreFileService.selectFile(atch_file_id);
-    }
-    
-    @RequestMapping("/file/listFiles")
-    @ResponseBody
-    public List<StoreFileVO> listFiles(@RequestParam("atch_file_id") int atch_file_id){
+    public List<StoreFileVO> selectFiles(@RequestParam("atch_file_id") int atch_file_id){
         System.out.println("StoreController.listFiles() called...");
         
-        return StoreFileService.listFiles(atch_file_id);
+        return StoreFileService.selectFiles(atch_file_id);
     }
     
-    @RequestMapping("/file/uploadFiles")
-    public String uploadFiles(@RequestParam("file") MultipartFile file) throws IllegalStateException, IOException {
-        File f = new File("");
-        file.transferTo(f);
-        
-        return null;
-    }
 }

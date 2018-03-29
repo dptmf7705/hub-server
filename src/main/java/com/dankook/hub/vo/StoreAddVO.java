@@ -1,19 +1,35 @@
 package com.dankook.hub.vo;
 
+import java.util.List;
+
+import org.springframework.web.multipart.MultipartFile;
+
 import com.dankook.hub.utils.EncodingUtil;
 
-public class StoreVO {
+/**
+ * @author yeseul
+ *
+ */
+public class StoreAddVO {
+    private List<MultipartFile> files;
     private int st_key;
     private String st_name;
-    private String st_tell;
     private String st_address;
     private int atch_file_id;
     private int ownr_key;
+    private String st_tell;
     private String st_open_time;
     private String st_close_time;
     private String cate_name;
-	private String st_introduction;
+    private String st_introduction;
     
+	public List<MultipartFile> getFiles() {
+		return files;
+	}
+	public void setFiles(List<MultipartFile> files) {
+		this.files = files;
+	}
+
 	public int getSt_key() {
 		return st_key;
 	}
@@ -62,7 +78,7 @@ public class StoreVO {
 	public void setSt_close_time(String st_close_time) {
 		this.st_close_time = EncodingUtil.encoding(st_close_time);
 	}
-    public String getCate_name() {
+	public String getCate_name() {
 		return cate_name;
 	}
 	public void setCate_name(String cate_name) {
@@ -74,6 +90,5 @@ public class StoreVO {
 	public void setSt_introduction(String st_introduction) {
 		this.st_introduction = EncodingUtil.encoding(st_introduction);
 	}
-    
     
 }
