@@ -11,7 +11,7 @@
     </select>
     
     <insert id="insertFiles" parameterType="java.util.List">
-   		INSERT INTO STORE_FILE(`atch_file_id`, `file_index`, `file_stre_url`, `stre_file_name`, `orign_file_name`, `file_extn`)
+   		INSERT INTO STORE_FILE(`ATCH_FILE_ID`, `FILE_INDEX`, `FILE_STRE_URL`, `STRE_FILE_NAME`, `ORIGN_FILE_NAME`, `FILE_EXTN`)
     	VALUES
     	<foreach collection="list" item="element" index="index" open="(" separator="),("  close=")">
      		#{element.atch_file_id},

@@ -21,7 +21,7 @@
     </select>
     
     <insert id="insertStore" useGeneratedKeys="true" keyProperty="st_key">
-   		INSERT INTO STORE(`st_name`, `st_address`, `atch_file_id`, `st_tell`, `st_open_time`,`st_close_time`, `st_introduction`, `cate_name`, `atch_file_id`)
+   		INSERT INTO STORE(`ST_NAME`, `ST_ADDRESS`, `ATCH_FILE_ID`, `ST_TELL`, `ST_OPEN_TIME`,`ST_CLOSE_TIME`, `ST_INTRODUCTION`, `CATE_NAME`, `ATCH_FILE_ID`)
     	VALUES(
      		#{st_name},
      		#{st_address},
