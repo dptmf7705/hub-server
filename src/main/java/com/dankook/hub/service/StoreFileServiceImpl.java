@@ -53,7 +53,7 @@ public class StoreFileServiceImpl implements StoreFileService {
     			String orignFileName = multipartFile.getOriginalFilename(); //원본 파일 명
     			String fileExtn = orignFileName.substring(orignFileName.indexOf(".") + 1); //파일 확장자
     			String streFileName = UUID.randomUUID().toString(); //저장할 파일 명
-    			String path = "C:\\Users\\yeseul\\Desktop\\" + streFileName + "." + fileExtn; //파일 저장 경로
+    			String path = "/var/lib/tomcat8/webapps/ROOT/image/" + streFileName + "." + fileExtn; //파일 저장 경로
     			orignFileName = EncodingUtil.encoding(orignFileName);
     			fvo.setAtch_file_id(st_key);
     			fvo.setFile_index(i);
