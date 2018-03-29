@@ -1,4 +1,3 @@
-
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//En"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
@@ -21,7 +20,7 @@
     </select>
     
     <insert id="insertStore" useGeneratedKeys="true" keyProperty="st_key">
-   		INSERT INTO STORE(`ST_NAME`, `ST_ADDRESS`, `ATCH_FILE_ID`, `ST_TELL`, `ST_OPEN_TIME`,`ST_CLOSE_TIME`, `ST_INTRODUCTION`, `CATE_NAME`, `ATCH_FILE_ID`)
+   		INSERT INTO STORE(`ST_NAME`, `ST_ADDRESS`, `ATCH_FILE_ID`, `ST_TELL`, `ST_OPEN_TIME`,`ST_CLOSE_TIME`, `ST_INTRODUCTION`, `CATE_NAME`)
     	VALUES(
      		#{st_name},
      		#{st_address},
@@ -30,8 +29,7 @@
      		#{st_open_time},
      		#{st_close_time},
      		#{st_introduction},
-     		#{cate_name},
-     		#{atch_file_id}
+     		#{cate_name}
      	)
 	</insert>
 </mapper>

@@ -31,7 +31,7 @@ public class AdminController {
     @Autowired
     private StoreFileService storeFileService;
     
-    @RequestMapping(value = "/addStore", method = RequestMethod.POST)
+    @RequestMapping(value = "/addStore", produces="application/json;charset=utf-8", method = RequestMethod.POST)
     @ResponseBody
     public String addStore(@ModelAttribute("uploadFile") StoreAddVO svo) throws Exception {
     	System.out.println("AdminController.addStore called...");
