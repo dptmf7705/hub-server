@@ -16,7 +16,7 @@
     <!-- 나중에 store + store_detail 테이블 합친 view로 바꾸기 -->
     <select id="selectStoreDetail" resultType="com.dankook.hub.vo.StoreDetailVO">
         SELECT *
-        FROM STORE JOIN STORE_DETAIL USING(ST_KEY)
+        FROM STORE 
         WHERE ST_KEY=#{st_key};
     </select>
 </mapper>

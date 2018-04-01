@@ -20,10 +20,10 @@
     	SELECT count(usr_id) FROM USER WHERE USR_ID=#{usr_id}
     </select>
     
-    <update id="updateUser">
+    <update id="updateUser" parameterType="com.dankook.hub.vo.UserVO">
         UPDATE USER 
-        SET USR_ID=#{usr_id}, USR_PASSWORD=#{usr_password} 
-            USR_NAME=#{usr_name}, USR_PHONE=#{usr_phone}
+        SET USR_PASSWORD=#{usr_password},USR_SALT = #{usr_salt},
+            USR_PHONE=#{usr_phone} WHERE USR_ID=#{usr_id}
     </update>
     
     <delete id="deleteUser">

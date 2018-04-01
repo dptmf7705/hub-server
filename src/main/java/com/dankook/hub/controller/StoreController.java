@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,7 +32,7 @@ public class StoreController {
     @ResponseBody
     public List<StoreVO> list(@RequestParam("cate_name") String cate_name){
         System.out.println("StoreController.list() called...");
-        
+   
         return storeService.listStores(cate_name);
     }
     
@@ -65,4 +67,6 @@ public class StoreController {
         
         return null;
     }
+    
+    
 }
