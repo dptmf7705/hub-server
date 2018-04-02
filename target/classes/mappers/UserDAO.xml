@@ -6,8 +6,8 @@
     
     <!-- 회원가입 -->
     <insert id="insertUser" parameterType="com.dankook.hub.vo.UserVO">
-        INSERT INTO USER(USR_ID, USR_PASSWORD, USR_NAME, USR_PHONE)
-        VALUES(#{usr_id}, #{usr_password}, #{usr_name}, #{usr_phone})
+        INSERT INTO USER(USR_ID, USR_PASSWORD, USR_SALT, USR_NAME, USR_PHONE)
+        VALUES(#{usr_id}, #{usr_password},#{usr_salt}, #{usr_name}, #{usr_phone})
     </insert>
     
     <!-- 로그인  -->
@@ -15,10 +15,15 @@
         SELECT * FROM USER WHERE USR_ID=#{usr_id}
     </select>
     
-    <update id="updateUser">
+    <!-- 중복체크 -->
+    <select id="overlap" resultType="int">
+    	SELECT count(usr_id) FROM USER WHERE USR_ID=#{usr_id}
+    </select>
+    
+    <update id="updateUser" parameterType="com.dankook.hub.vo.UserVO">
         UPDATE USER 
-        SET USR_ID=#{usr_id}, USR_PASSWORD=#{usr_password} 
-            USR_NAME=#{usr_name}, USR_PHONE=#{usr_phone}
+        SET USR_PASSWORD=#{usr_password},USR_SALT = #{usr_salt},
+            USR_PHONE=#{usr_phone} WHERE USR_ID=#{usr_id}
     </update>
     
     <delete id="deleteUser">

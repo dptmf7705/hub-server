@@ -2,6 +2,8 @@ package com.dankook.hub.controller;
 
 import java.util.HashMap;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,10 +22,10 @@ public class UserController {
     
     @RequestMapping("/login")
     @ResponseBody
-    public HashMap<String, Object> login(LoginVO lvo) {
+    public HashMap<String, Object> login(LoginVO lvo, HttpSession session) {
         System.out.println("UserController.login() called... with " + lvo.toString());
-        
-        return userService.login(lvo);
+ 
+        	return userService.login(lvo, session);
     }
     
     @RequestMapping("/join")
@@ -32,5 +34,32 @@ public class UserController {
         
         userService.insertUser(uvo);
     }
+    
+    @RequestMapping("/overlap")
+    @ResponseBody
+    public HashMap<String, Object> overlap(String usr_id) {
+    	System.out.println("UserController.overlap() called... with "+usr_id);
+    	
+    	return userService.overlap(usr_id);
+    }
 
+    @RequestMapping("/profile/settings")
+    @ResponseBody
+    public UserVO profileSettings(HttpSession session){
+    	String userId = (String) session.getAttribute("userId");
+    	System.out.println("UserController.profileSettings() called... with" + userId);
+    	
+    	return userService.sessionGet(session);
+    }
+    
+    
+    @RequestMapping("/profile/update")
+    @ResponseBody
+    public UserVO profileUpdate(UserVO uvo, HttpSession session){
+    	System.out.println("UserController.profileUpdate() called... with" );
+    	
+    	return userService.updateUser(uvo,session);
+    }
+    
+   
 }

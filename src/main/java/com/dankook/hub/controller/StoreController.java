@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -53,6 +55,15 @@ public class StoreController {
         System.out.println("StoreController.listFiles() called...");
         
         return StoreFileService.selectFiles(atch_file_id);
+    }
+    
+
+    @RequestMapping("/file/uploadFiles")
+    public String uploadFiles(@RequestParam("file") MultipartFile file) throws IllegalStateException, IOException {
+        File f = new File("");
+        file.transferTo(f);
+        
+        return null;
     }
     
 }

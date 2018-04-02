@@ -6,6 +6,15 @@ public class UserVO {
     private String usr_password;
     private String usr_name;
     private String usr_phone;
+    private String usr_salt;
+    
+    
+	public String getUsr_salt() {
+		return usr_salt;
+	}
+	public void setUsr_salt(String usr_salt) {
+		this.usr_salt = usr_salt;
+	}
 	public int getUsr_key() {
 		return usr_key;
 	}
